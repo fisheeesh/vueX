@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <h1>{{ $store.state.Todos.sayHello }}</h1>
+    <Todos></Todos>
   </div>
 </template>
 
 <script>
 
+import Todos from './components/Todos'
 export default {
+  components: { Todos },
 
 }
 </script>

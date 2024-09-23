@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <h1>Hello VueX</h1>
+    <h1>{{ $store.state.Todos.sayHello }}</h1>
   </div>
 </template>
 
 <script>
 
 export default {
+
 }
 </script>
 

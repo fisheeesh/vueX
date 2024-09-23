@@ -1,9 +1,12 @@
 import axios from "axios"
 
-
 export default {
     state : {
-        todos : []
+        todos : [
+            {id :1, title : 'Title 1'},
+            {id :2, title : 'Title 2'},
+            {id :3, title : 'Title 3'}
+        ]
     },
     getters : {
         myTodos(state){
@@ -17,9 +20,9 @@ export default {
     },
     actions : {
         async getTodos({commit}){
-            let res = await axios.get('https://jsonplaceholder.typicode.com/todos')
-            let todos = res.data
-
+            let response = await axios.get('https://jsonplaceholder.typicode.com/todos')
+            let todos = response.data
+        
             commit('setTodos', todos)
         }
     }

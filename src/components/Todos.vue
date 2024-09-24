@@ -4,6 +4,7 @@
         <div class="container">
             <div class="row">
                 <AddTodo></AddTodo>
+                <FilterTodo></FilterTodo>
             </div>
             <div class="row">
                 <div class="col-md-4 my-4" v-for="todo in myTodos" :key="todo.id">
@@ -20,11 +21,13 @@
 </template>
 
 <script>
+import FilterTodo from './FilterTodo'
 import AddTodo from './AddTodo'
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  components: { AddTodo },
+  components: {
+    FilterTodo, AddTodo },
     methods : mapActions([
         'getTodos',
         'deleteTodo'

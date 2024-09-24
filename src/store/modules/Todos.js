@@ -15,6 +15,9 @@ export default {
         },
         setTodo(state, newTodo){
             state.todos.unshift(newTodo)
+        },
+        removeTodo(state, removeId){
+            state.todos = state.todos.filter(todo => todo.id !== removeId)
         }
     },
     actions : {
@@ -27,6 +30,10 @@ export default {
         async addTodo(context, newTodo){
             let res = await axios.post('https://jsonplaceholder.typicode.com/todos', newTodo)
             context.commit('setTodo', res.data)
+        },
+        async deleteTodo(context, removeId){
+            await axios.delete(`https://jsonplaceholder.typicode.com/todos/${{removeId}}`)
+            context.commit('removeTodo', removeId)
         }
     }
 }

@@ -2,11 +2,7 @@ import axios from "axios"
 
 export default {
     state : {
-        todos : [
-            {id :1, title : 'Title 1'},
-            {id :2, title : 'Title 2'},
-            {id :3, title : 'Title 3'}
-        ]
+        todos : []
     },
     getters : {
         myTodos(state){
@@ -16,6 +12,9 @@ export default {
     mutations : {
         setTodos(state, todos){
             state.todos = todos
+        },
+        setTodo(state, newTodo){
+            state.todos.unshift(newTodo)
         }
     },
     actions : {
@@ -24,6 +23,10 @@ export default {
             let todos = response.data
         
             commit('setTodos', todos)
+        },
+        async addTodo(context, newTodo){
+            let res = await axios.post('https://jsonplaceholder.typicode.com/todos', newTodo)
+            context.commit('setTodo', res.data)
         }
     }
 }

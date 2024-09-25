@@ -33,7 +33,7 @@ export default {
     methods: {
         toggleCompleted(todo){
             /**
-             * ! toggling progress in UI is done by here but in backend the desired data will no change
+             * ! toggling progress in UI is done by here but in backend the desired data will not change
              */
             todo.completed = !todo.completed
             /**

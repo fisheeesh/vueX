@@ -20,7 +20,8 @@ export default {
             state.todos = state.todos.filter(todo => todo.id !== removeId)
         },
         /** 
-         * ! We have to change the existing data with the updated data by looping through the existing todos array with is objects array
+         * ! We have to change the existing data with the updated data 
+         * !by looping through the existing todos array with its objects array
          */
         updateTodo(state, todo){
             state.todos.forEach(t => {
@@ -51,7 +52,7 @@ export default {
         },
         /**
          * ! We connect with put req to the api to the update data by id and we have to pass the updated data in the second parameter
-         * ! If we dun commit mutation, the data will no change
+         * ! If we dun commit mutation, the data will not change
          * ! so we have to commit the desired mutation and pass the updated data
          */
         async updateTodo(context, todo){
